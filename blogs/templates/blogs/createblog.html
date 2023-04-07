@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}New Blog{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light">
+    <div class="row py-3">
+        <div class="col-md-8 col-md-10 mx-auto text-center">
+            <h3 class="card-title">Let's post a new post &#128516;</h3>
+        </div>
+    </div>
+</div>
+<div class = "card shadow p-3">
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+                {{form.as_p}}
+        </table>
+            <button type = "submit" class = "btn btn-primary">Post It!</button>
+    </form>
+</div>
+{% endblock content %}

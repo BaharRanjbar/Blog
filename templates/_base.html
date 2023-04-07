@@ -1,0 +1,127 @@
+{% load static %}
+<!doctype html>
+<html lang="en,fa">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+        <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Bahar Ranjbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'blogs:homepage'%}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blogs:bloglistpage'%}">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blogs:createblogpage'%}">New Blog</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <div class="mx-2 text-white">
+                        {% if user.is_authenticated %}
+                            Welcome {{ user.username }} | <a class='text-light' href="{% url 'logout' %}">Log Out</a>
+                        {% else %}
+                            <a class='text-light' href="{% url 'login' %}"> Log In</a> | <a class='text-light' href="{% url 'accounts:signup' %}">Sign Up</a>
+                        {% endif %}
+                    </div>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock content %}
+
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <section>
+                <h6>would you like to connect with me?</h6>
+            </section>
+          <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Instagram -->
+                <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #d62976;"
+                    href="#!"
+                    role="button">
+                    <i class="fab fa-instagram">Instagram</i>
+                </a>
+                <!-- Linkedin -->
+                <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #0072b1;"
+                    href="#!"
+                    role="button">
+                    <i class="fab fa-linkedin-in">Linkedin</i>
+                </a>
+                <!-- Github -->
+                <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #000000;"
+                    href="#!"
+                    role="button">
+                    <i class="fab fa-github">Github</i>
+                </a>
+                <!-- Email -->
+                <a
+                class="btn text-white btn-floating m-1"
+                style="background-color: #FF0000;"
+                href="#!"
+                role="button">
+                <i class="fab fa-email">Gmail</i>
+                </a>
+                <a
+                class="btn text-white btn-floating m-1"
+                style="background-color: #0088CC;"
+                href="#!"
+                role="button">
+                <i class="fab fa-telegram">Telegram</i>
+                </a>
+            </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3">
+          © 2023 Copyright:
+          <a class="text-white" href="#">Abikhanooom.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
+                crossorigin="anonymous"></script>       
+</body>
+</html>
+
+
